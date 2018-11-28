@@ -33,7 +33,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/libjpegturbo/turbojpeg/TJCustomFilter.html" title="interface in org.libjpegturbo.turbojpeg"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/libjpegturbo/turbojpeg/TJScalingFactor.html" title="class in org.libjpegturbo.turbojpeg"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/libjpegturbo/turbojpeg/TJDecompressor.html" target="_top">Frames</a></li>
@@ -91,18 +91,13 @@
 <ul class="blockList">
 <li class="blockList">
 <dl>
-<dt>All Implemented Interfaces:</dt>
-<dd>java.io.Closeable, java.lang.AutoCloseable</dd>
-</dl>
-<dl>
 <dt>Direct Known Subclasses:</dt>
 <dd><a href="../../../org/libjpegturbo/turbojpeg/TJTransformer.html" title="class in org.libjpegturbo.turbojpeg">TJTransformer</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">TJDecompressor</span>
-extends java.lang.Object
-implements java.io.Closeable</pre>
+extends java.lang.Object</pre>
 <div class="block">TurboJPEG decompressor</div>
 </li>
 </ul>
@@ -534,10 +529,10 @@ implements java.io.Closeable</pre>
 <li class="blockList">
 <h4>TJDecompressor</h4>
 <pre>public&nbsp;TJDecompressor()
-               throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+               throws java.lang.Exception</pre>
 <div class="block">Create a TurboJPEG decompresssor instance.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="TJDecompressor(byte[])">
@@ -547,13 +542,13 @@ implements java.io.Closeable</pre>
 <li class="blockList">
 <h4>TJDecompressor</h4>
 <pre>public&nbsp;TJDecompressor(byte[]&nbsp;jpegImage)
-               throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+               throws java.lang.Exception</pre>
 <div class="block">Create a TurboJPEG decompressor instance and associate the JPEG source
  image stored in <code>jpegImage</code> with the newly created instance.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>jpegImage</code> - JPEG image buffer (size of the JPEG image is assumed to
  be the length of the array.)  This buffer is not modified.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="TJDecompressor(byte[], int)">
@@ -564,13 +559,13 @@ implements java.io.Closeable</pre>
 <h4>TJDecompressor</h4>
 <pre>public&nbsp;TJDecompressor(byte[]&nbsp;jpegImage,
               int&nbsp;imageSize)
-               throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+               throws java.lang.Exception</pre>
 <div class="block">Create a TurboJPEG decompressor instance and associate the JPEG source
  image of length <code>imageSize</code> bytes stored in
  <code>jpegImage</code> with the newly created instance.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>jpegImage</code> - JPEG image buffer.  This buffer is not modified.</dd><dd><code>imageSize</code> - size of the JPEG image (in bytes)</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="TJDecompressor(org.libjpegturbo.turbojpeg.YUVImage)">
@@ -580,14 +575,14 @@ implements java.io.Closeable</pre>
 <li class="blockList">
 <h4>TJDecompressor</h4>
 <pre>public&nbsp;TJDecompressor(<a href="../../../org/libjpegturbo/turbojpeg/YUVImage.html" title="class in org.libjpegturbo.turbojpeg">YUVImage</a>&nbsp;yuvImage)
-               throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+               throws java.lang.Exception</pre>
 <div class="block">Create a TurboJPEG decompressor instance and associate the YUV planar
  source image stored in <code>yuvImage</code> with the newly created
  instance.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>yuvImage</code> - <a href="../../../org/libjpegturbo/turbojpeg/YUVImage.html" title="class in org.libjpegturbo.turbojpeg"><code>YUVImage</code></a> instance containing a YUV planar
  image to be decoded.  This image is not modified.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 </li>
@@ -606,13 +601,13 @@ implements java.io.Closeable</pre>
 <h4>setSourceImage</h4>
 <pre>public&nbsp;void&nbsp;setSourceImage(byte[]&nbsp;jpegImage,
                   int&nbsp;imageSize)
-                    throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                    throws java.lang.Exception</pre>
 <div class="block">Associate the JPEG image of length <code>imageSize</code> bytes stored in
  <code>jpegImage</code> with this decompressor instance.  This image will
  be used as the source image for subsequent decompress operations.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>jpegImage</code> - JPEG image buffer.  This buffer is not modified.</dd><dd><code>imageSize</code> - size of the JPEG image (in bytes)</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="setJPEGImage(byte[], int)">
@@ -624,10 +619,10 @@ implements java.io.Closeable</pre>
 <pre>@Deprecated
 public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
                            int&nbsp;imageSize)
-                  throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                  throws java.lang.Exception</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../org/libjpegturbo/turbojpeg/TJDecompressor.html#setSourceImage(byte[],%20int)"><code>setSourceImage(byte[], int)</code></a> instead.</i></div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="setSourceImage(org.libjpegturbo.turbojpeg.YUVImage)">
@@ -636,12 +631,15 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>setSourceImage</h4>
-<pre>public&nbsp;void&nbsp;setSourceImage(<a href="../../../org/libjpegturbo/turbojpeg/YUVImage.html" title="class in org.libjpegturbo.turbojpeg">YUVImage</a>&nbsp;srcImage)</pre>
+<pre>public&nbsp;void&nbsp;setSourceImage(<a href="../../../org/libjpegturbo/turbojpeg/YUVImage.html" title="class in org.libjpegturbo.turbojpeg">YUVImage</a>&nbsp;srcImage)
+                    throws java.lang.Exception</pre>
 <div class="block">Associate the specified YUV planar source image with this decompressor
  instance.  Subsequent decompress operations will decode this image into an
  RGB or grayscale destination image.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>srcImage</code> - <a href="../../../org/libjpegturbo/turbojpeg/YUVImage.html" title="class in org.libjpegturbo.turbojpeg"><code>YUVImage</code></a> instance containing a YUV planar image to
- be decoded.  This image is not modified.</dd></dl>
+ be decoded.  This image is not modified.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getWidth()">
@@ -650,11 +648,14 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>getWidth</h4>
-<pre>public&nbsp;int&nbsp;getWidth()</pre>
+<pre>public&nbsp;int&nbsp;getWidth()
+             throws java.lang.Exception</pre>
 <div class="block">Returns the width of the source image (JPEG or YUV) associated with this
  decompressor instance.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the width of the source image (JPEG or YUV) associated with this
- decompressor instance.</dd></dl>
+ decompressor instance.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getHeight()">
@@ -663,11 +664,14 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>getHeight</h4>
-<pre>public&nbsp;int&nbsp;getHeight()</pre>
+<pre>public&nbsp;int&nbsp;getHeight()
+              throws java.lang.Exception</pre>
 <div class="block">Returns the height of the source image (JPEG or YUV) associated with this
  decompressor instance.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the height of the source image (JPEG or YUV) associated with this
- decompressor instance.</dd></dl>
+ decompressor instance.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getSubsamp()">
@@ -676,12 +680,15 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>getSubsamp</h4>
-<pre>public&nbsp;int&nbsp;getSubsamp()</pre>
+<pre>public&nbsp;int&nbsp;getSubsamp()
+               throws java.lang.Exception</pre>
 <div class="block">Returns the level of chrominance subsampling used in the source image
  (JPEG or YUV) associated with this decompressor instance.  See
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#SAMP_444"><code>TJ.SAMP_*</code></a>.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the level of chrominance subsampling used in the source image
- (JPEG or YUV) associated with this decompressor instance.</dd></dl>
+ (JPEG or YUV) associated with this decompressor instance.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getColorspace()">
@@ -690,12 +697,15 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>getColorspace</h4>
-<pre>public&nbsp;int&nbsp;getColorspace()</pre>
+<pre>public&nbsp;int&nbsp;getColorspace()
+                  throws java.lang.Exception</pre>
 <div class="block">Returns the colorspace used in the source image (JPEG or YUV) associated
  with this decompressor instance.  See <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#CS_RGB"><code>TJ.CS_*</code></a>.  If the
  source image is YUV, then this always returns <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#CS_YCbCr"><code>TJ.CS_YCbCr</code></a>.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the colorspace used in the source image (JPEG or YUV) associated
- with this decompressor instance.</dd></dl>
+ with this decompressor instance.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getJPEGBuf()">
@@ -704,9 +714,12 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>getJPEGBuf</h4>
-<pre>public&nbsp;byte[]&nbsp;getJPEGBuf()</pre>
+<pre>public&nbsp;byte[]&nbsp;getJPEGBuf()
+                  throws java.lang.Exception</pre>
 <div class="block">Returns the JPEG image buffer associated with this decompressor instance.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the JPEG image buffer associated with this decompressor instance.</dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the JPEG image buffer associated with this decompressor instance.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getJPEGSize()">
@@ -715,11 +728,14 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <ul class="blockList">
 <li class="blockList">
 <h4>getJPEGSize</h4>
-<pre>public&nbsp;int&nbsp;getJPEGSize()</pre>
+<pre>public&nbsp;int&nbsp;getJPEGSize()
+                throws java.lang.Exception</pre>
 <div class="block">Returns the size of the JPEG image (in bytes) associated with this
  decompressor instance.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>the size of the JPEG image (in bytes) associated with this
- decompressor instance.</dd></dl>
+ decompressor instance.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getScaledWidth(int, int)">
@@ -729,7 +745,8 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <li class="blockList">
 <h4>getScaledWidth</h4>
 <pre>public&nbsp;int&nbsp;getScaledWidth(int&nbsp;desiredWidth,
-                 int&nbsp;desiredHeight)</pre>
+                 int&nbsp;desiredHeight)
+                   throws java.lang.Exception</pre>
 <div class="block">Returns the width of the largest scaled-down image that the TurboJPEG
  decompressor can generate without exceeding the desired image width and
  height.</div>
@@ -742,7 +759,9 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
  the scaled image size.)</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the width of the largest scaled-down image that the TurboJPEG
  decompressor can generate without exceeding the desired image width and
- height.</dd></dl>
+ height.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="getScaledHeight(int, int)">
@@ -752,7 +771,8 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
 <li class="blockList">
 <h4>getScaledHeight</h4>
 <pre>public&nbsp;int&nbsp;getScaledHeight(int&nbsp;desiredWidth,
-                  int&nbsp;desiredHeight)</pre>
+                  int&nbsp;desiredHeight)
+                    throws java.lang.Exception</pre>
 <div class="block">Returns the height of the largest scaled-down image that the TurboJPEG
  decompressor can generate without exceeding the desired image width and
  height.</div>
@@ -765,7 +785,9 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
  the scaled image size.)</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the height of the largest scaled-down image that the TurboJPEG
  decompressor can generate without exceeding the desired image width and
- height.</dd></dl>
+ height.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompress(byte[], int, int, int, int, int, int, int)">
@@ -782,7 +804,7 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
               int&nbsp;desiredHeight,
               int&nbsp;pixelFormat,
               int&nbsp;flags)
-                throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image or decode the YUV source image associated
  with this decompressor instance and output a grayscale, RGB, or CMYK image
  to the given destination buffer.</div>
@@ -830,7 +852,7 @@ public&nbsp;void&nbsp;setJPEGImage(byte[]&nbsp;jpegImage,
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#PF_RGB"><code>TJ.PF_*</code></a>)</dd><dd><code>flags</code> - the bitwise OR of one or more of
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompress(byte[], int, int, int, int, int)">
@@ -846,11 +868,11 @@ public&nbsp;void&nbsp;decompress(byte[]&nbsp;dstBuf,
                          int&nbsp;desiredHeight,
                          int&nbsp;pixelFormat,
                          int&nbsp;flags)
-                throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                throws java.lang.Exception</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use
  <a href="../../../org/libjpegturbo/turbojpeg/TJDecompressor.html#decompress(byte[],%20int,%20int,%20int,%20int,%20int,%20int,%20int)"><code>decompress(byte[], int, int, int, int, int, int, int)</code></a> instead.</i></div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompress(int, int, int, int, int)">
@@ -864,7 +886,7 @@ public&nbsp;void&nbsp;decompress(byte[]&nbsp;dstBuf,
                 int&nbsp;desiredHeight,
                 int&nbsp;pixelFormat,
                 int&nbsp;flags)
-                  throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                  throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image associated with this decompressor
  instance and return a buffer containing the decompressed image.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>desiredWidth</code> - see
@@ -878,7 +900,7 @@ public&nbsp;void&nbsp;decompress(byte[]&nbsp;dstBuf,
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Returns:</span></dt><dd>a buffer containing the decompressed image.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompressToYUV(org.libjpegturbo.turbojpeg.YUVImage, int)">
@@ -889,7 +911,7 @@ public&nbsp;void&nbsp;decompress(byte[]&nbsp;dstBuf,
 <h4>decompressToYUV</h4>
 <pre>public&nbsp;void&nbsp;decompressToYUV(<a href="../../../org/libjpegturbo/turbojpeg/YUVImage.html" title="class in org.libjpegturbo.turbojpeg">YUVImage</a>&nbsp;dstImage,
                    int&nbsp;flags)
-                     throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                     throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image associated with this decompressor
  instance into a YUV planar image and store it in the given
  <code>YUVImage</code> instance.  This method performs JPEG decompression
@@ -904,7 +926,7 @@ public&nbsp;void&nbsp;decompress(byte[]&nbsp;dstBuf,
  source image.</dd><dd><code>flags</code> - the bitwise OR of one or more of
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompressToYUV(byte[], int)">
@@ -916,10 +938,10 @@ public&nbsp;void&nbsp;decompress(byte[]&nbsp;dstBuf,
 <pre>@Deprecated
 public&nbsp;void&nbsp;decompressToYUV(byte[]&nbsp;dstBuf,
                               int&nbsp;flags)
-                     throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                     throws java.lang.Exception</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../org/libjpegturbo/turbojpeg/TJDecompressor.html#decompressToYUV(org.libjpegturbo.turbojpeg.YUVImage,%20int)"><code>decompressToYUV(YUVImage, int)</code></a> instead.</i></div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompressToYUV(int, int[], int, int)">
@@ -932,7 +954,7 @@ public&nbsp;void&nbsp;decompressToYUV(byte[]&nbsp;dstBuf,
                        int[]&nbsp;strides,
                        int&nbsp;desiredHeight,
                        int&nbsp;flags)
-                         throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                         throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image associated with this decompressor
  instance into a set of Y, U (Cb), and V (Cr) image planes and return a
  <code>YUVImage</code> instance containing the decompressed image planes.
@@ -962,7 +984,7 @@ public&nbsp;void&nbsp;decompressToYUV(byte[]&nbsp;dstBuf,
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Returns:</span></dt><dd>a YUV planar image.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompressToYUV(int, int, int, int)">
@@ -975,7 +997,7 @@ public&nbsp;void&nbsp;decompressToYUV(byte[]&nbsp;dstBuf,
                        int&nbsp;pad,
                        int&nbsp;desiredHeight,
                        int&nbsp;flags)
-                         throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                         throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image associated with this decompressor
  instance into a unified YUV planar image buffer and return a
  <code>YUVImage</code> instance containing the decompressed image.  This
@@ -1001,7 +1023,7 @@ public&nbsp;void&nbsp;decompressToYUV(byte[]&nbsp;dstBuf,
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Returns:</span></dt><dd>a YUV planar image.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompressToYUV(int)">
@@ -1012,10 +1034,10 @@ public&nbsp;void&nbsp;decompressToYUV(byte[]&nbsp;dstBuf,
 <h4>decompressToYUV</h4>
 <pre>@Deprecated
 public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
-                       throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                       throws java.lang.Exception</pre>
 <div class="block"><span class="strong">Deprecated.</span>&nbsp;<i>Use <a href="../../../org/libjpegturbo/turbojpeg/TJDecompressor.html#decompressToYUV(int,%20int,%20int,%20int)"><code>decompressToYUV(int, int, int, int)</code></a> instead.</i></div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompress(int[], int, int, int, int, int, int, int)">
@@ -1032,7 +1054,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
               int&nbsp;desiredHeight,
               int&nbsp;pixelFormat,
               int&nbsp;flags)
-                throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image or decode the YUV source image associated
  with this decompressor instance and output a grayscale, RGB, or CMYK image
  to the given destination buffer.</div>
@@ -1078,7 +1100,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#PF_RGB"><code>TJ.PF_*</code></a>)</dd><dd><code>flags</code> - the bitwise OR of one or more of
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompress(java.awt.image.BufferedImage, int)">
@@ -1089,7 +1111,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
 <h4>decompress</h4>
 <pre>public&nbsp;void&nbsp;decompress(java.awt.image.BufferedImage&nbsp;dstImage,
               int&nbsp;flags)
-                throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image or decode the YUV source image associated
  with this decompressor instance and output a decompressed/decoded image to
  the given <code>BufferedImage</code> instance.</div>
@@ -1102,7 +1124,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
  height of the YUV image.</dd><dd><code>flags</code> - the bitwise OR of one or more of
  <a href="../../../org/libjpegturbo/turbojpeg/TJ.html#FLAG_BOTTOMUP"><code>TJ.FLAG_*</code></a></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="decompress(int, int, int, int)">
@@ -1115,7 +1137,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
                                       int&nbsp;desiredHeight,
                                       int&nbsp;bufferedImageType,
                                       int&nbsp;flags)
-                                        throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+                                        throws java.lang.Exception</pre>
 <div class="block">Decompress the JPEG source image or decode the YUV source image associated
  with this decompressor instance and return a <code>BufferedImage</code>
  instance containing the decompressed/decoded image.</div>
@@ -1130,7 +1152,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
 <dt><span class="strong">Returns:</span></dt><dd>a <code>BufferedImage</code> instance containing the
  decompressed/decoded image.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="close()">
@@ -1140,15 +1162,10 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close()
-           throws <a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></pre>
+           throws java.lang.Exception</pre>
 <div class="block">Free the native structures associated with this decompressor instance.</div>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>close</code>&nbsp;in interface&nbsp;<code>java.io.Closeable</code></dd>
-<dt><strong>Specified by:</strong></dt>
-<dd><code>close</code>&nbsp;in interface&nbsp;<code>java.lang.AutoCloseable</code></dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg">TJException</a></code></dd></dl>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code>java.lang.Exception</code></dd></dl>
 </li>
 </ul>
 <a name="finalize()">
@@ -1191,7 +1208,7 @@ public&nbsp;byte[]&nbsp;decompressToYUV(int&nbsp;flags)
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/libjpegturbo/turbojpeg/TJCustomFilter.html" title="interface in org.libjpegturbo.turbojpeg"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/libjpegturbo/turbojpeg/TJException.html" title="class in org.libjpegturbo.turbojpeg"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/libjpegturbo/turbojpeg/TJScalingFactor.html" title="class in org.libjpegturbo.turbojpeg"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/libjpegturbo/turbojpeg/TJDecompressor.html" target="_top">Frames</a></li>

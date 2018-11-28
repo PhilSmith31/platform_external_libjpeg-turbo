@@ -2,9 +2,10 @@
 ; jsimdext.inc - common declarations
 ;
 ; Copyright 2009 Pierre Ossman <ossman@cendio.se> for Cendio AB
-; Copyright (C) 2010, D. R. Commander.
+; Copyright 2010 D. R. Commander
 ;
-; Based on the x86 SIMD extension for IJG JPEG library - version 1.02
+; Based on
+; x86 SIMD extension for IJG JPEG library - version 1.02
 ;
 ; Copyright (C) 1999-2006, MIYASAKA Masaru.
 ;
@@ -184,7 +185,7 @@ section .note.GNU-stack noalloc noexec nowrite progbits
 # code failed to link because the function names in the SIMD code did not
 # match the callers (because of the extra underscore).  This fix only
 # applies to x86 SIMD code.  x86_64 is handled properly by the code above.
-%define EXTN(name)   name          ; foo() -> _foo
+%define EXTN(name)  name
 %endif
 
 ; --------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 /*
  * Copyright (C)2011-2013 D. R. Commander.  All Rights Reserved.
- * Copyright (C)2015 Viktor Szathmáry.  All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -88,8 +87,9 @@ public final class TJ {
    * @return the MCU block width for the given level of chrominance
    * subsampling.
    */
-  public static int getMCUWidth(int subsamp) {
-    checkSubsampling(subsamp);
+  public static int getMCUWidth(int subsamp) throws Exception {
+    if (subsamp < 0 || subsamp >= NUMSAMP)
+      throw new Exception("Invalid subsampling type");
     return mcuWidth[subsamp];
   }
 
@@ -108,8 +108,9 @@ public final class TJ {
    * @return the MCU block height for the given level of chrominance
    * subsampling.
    */
-  public static int getMCUHeight(int subsamp) {
-    checkSubsampling(subsamp);
+  public static int getMCUHeight(int subsamp) throws Exception {
+    if (subsamp < 0 || subsamp >= NUMSAMP)
+      throw new Exception("Invalid subsampling type");
     return mcuHeight[subsamp];
   }
 
@@ -216,8 +217,9 @@ public final class TJ {
    *
    * @return the pixel size (in bytes) for the given pixel format.
    */
-  public static int getPixelSize(int pixelFormat) {
-    checkPixelFormat(pixelFormat);
+  public static int getPixelSize(int pixelFormat) throws Exception {
+    if (pixelFormat < 0 || pixelFormat >= NUMPF)
+      throw new Exception("Invalid pixel format");
     return pixelSize[pixelFormat];
   }
 
@@ -237,8 +239,9 @@ public final class TJ {
    *
    * @return the red offset for the given pixel format.
    */
-  public static int getRedOffset(int pixelFormat) {
-    checkPixelFormat(pixelFormat);
+  public static int getRedOffset(int pixelFormat) throws Exception {
+    if (pixelFormat < 0 || pixelFormat >= NUMPF)
+      throw new Exception("Invalid pixel format");
     return redOffset[pixelFormat];
   }
 
@@ -258,8 +261,9 @@ public final class TJ {
    *
    * @return the green offset for the given pixel format.
    */
-  public static int getGreenOffset(int pixelFormat) {
-    checkPixelFormat(pixelFormat);
+  public static int getGreenOffset(int pixelFormat) throws Exception {
+    if (pixelFormat < 0 || pixelFormat >= NUMPF)
+      throw new Exception("Invalid pixel format");
     return greenOffset[pixelFormat];
   }
 
@@ -279,8 +283,9 @@ public final class TJ {
    *
    * @return the blue offset for the given pixel format.
    */
-  public static int getBlueOffset(int pixelFormat) {
-    checkPixelFormat(pixelFormat);
+  public static int getBlueOffset(int pixelFormat) throws Exception {
+    if (pixelFormat < 0 || pixelFormat >= NUMPF)
+      throw new Exception("Invalid pixel format");
     return blueOffset[pixelFormat];
   }
 
@@ -402,7 +407,8 @@ public final class TJ {
    * @return the maximum size of the buffer (in bytes) required to hold a JPEG
    * image with the given width, height, and level of chrominance subsampling.
    */
-  public static native int bufSize(int width, int height, int jpegSubsamp);
+  public static native int bufSize(int width, int height, int jpegSubsamp)
+    throws Exception;
 
   /**
    * Returns the size of the buffer (in bytes) required to hold a YUV planar
@@ -422,13 +428,15 @@ public final class TJ {
    * image with the given width, height, and level of chrominance subsampling.
    */
   public static native int bufSizeYUV(int width, int pad, int height,
-                                      int subsamp);
+                                      int subsamp)
+    throws Exception;
 
   /**
    * @deprecated Use {@link #bufSizeYUV(int, int, int, int)} instead.
    */
   @Deprecated
-  public static native int bufSizeYUV(int width, int height, int subsamp);
+  public static native int bufSizeYUV(int width, int height, int subsamp)
+    throws Exception;
 
   /**
    * Returns the size of the buffer (in bytes) required to hold a YUV image
@@ -452,7 +460,8 @@ public final class TJ {
    * image with the given parameters.
    */
   public static native int planeSizeYUV(int componentID, int width, int stride,
-                                        int height, int subsamp);
+                                        int height, int subsamp)
+    throws Exception;
 
   /**
    * Returns the plane width of a YUV image plane with the given parameters.
@@ -468,7 +477,8 @@ public final class TJ {
    *
    * @return the plane width of a YUV image plane with the given parameters.
    */
-  public static native int planeWidth(int componentID, int width, int subsamp);
+  public static native int planeWidth(int componentID, int width, int subsamp)
+    throws Exception;
 
   /**
    * Returns the plane height of a YUV image plane with the given parameters.
@@ -485,7 +495,8 @@ public final class TJ {
    * @return the plane height of a YUV image plane with the given parameters.
    */
   public static native int planeHeight(int componentID, int height,
-                                       int subsamp);
+                                       int subsamp)
+    throws Exception;
 
   /**
    * Returns a list of fractional scaling factors that the JPEG decompressor in
@@ -494,20 +505,10 @@ public final class TJ {
    * @return a list of fractional scaling factors that the JPEG decompressor in
    * this implementation of TurboJPEG supports.
    */
-  public static native TJScalingFactor[] getScalingFactors();
+  public static native TJScalingFactor[] getScalingFactors()
+    throws Exception;
 
   static {
     TJLoader.load();
   }
-
-  private static void checkPixelFormat(int pixelFormat) {
-    if (pixelFormat < 0 || pixelFormat >= NUMPF)
-      throw new IllegalArgumentException("Invalid pixel format");
-  }
-
-  private static void checkSubsampling(int subsamp) {
-    if (subsamp < 0 || subsamp >= NUMSAMP)
-      throw new IllegalArgumentException("Invalid subsampling type");
-  }
-
-}
+};

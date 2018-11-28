@@ -1,5 +1,5 @@
 /*
- * Copyright (C)2009-2016 D. R. Commander.  All Rights Reserved.
+ * Copyright (C)2009-2015 D. R. Commander.  All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -46,7 +46,7 @@
 #define _throwbmp(m) _throw(m, bmpgeterr())
 
 int flags=TJFLAG_NOREALLOC, componly=0, decomponly=0, doyuv=0, quiet=0,
-	dotile=0, pf=TJPF_BGR, yuvpad=1, warmup=1, dowrite=1;
+	dotile=0, pf=TJPF_BGR, yuvpad=1, warmup=1;
 char *ext="ppm";
 const char *pixFormatStr[TJ_NUMPF]=
 {
@@ -213,9 +213,6 @@ int decomp(unsigned char *srcbuf, unsigned char **jpegbuf,
 				(double)(w*h)/1000000.*(double)iter/elapsedDecode);
 		}
 	}
-
-	if (!dowrite) goto bailout;
-
 	if(sf.num!=1 || sf.denom!=1)
 		snprintf(sizestr, 20, "%d_%d", sf.num, sf.denom);
 	else if(tilew!=w || tileh!=h)
@@ -248,8 +245,7 @@ int decomp(unsigned char *srcbuf, unsigned char **jpegbuf,
 					int y=(int)((double)srcbuf[rindex]*0.299
 						+ (double)srcbuf[gindex]*0.587
 						+ (double)srcbuf[bindex]*0.114 + 0.5);
-					if(y>255) y=255;
-					if(y<0) y=0;
+					if(y>255) y=255;  if(y<0) y=0;
 					dstbuf[rindex]=abs(dstbuf[rindex]-y);
 					dstbuf[gindex]=abs(dstbuf[gindex]-y);
 					dstbuf[bindex]=abs(dstbuf[bindex]-y);
@@ -301,8 +297,7 @@ int fullTest(unsigned char *srcbuf, int w, int h, int subsamp, int jpegqual,
 
 	for(tilew=dotile? 8:w, tileh=dotile? 8:h; ; tilew*=2, tileh*=2)
 	{
-		if(tilew>w) tilew=w;
-		if(tileh>h) tileh=h;
+		if(tilew>w) tilew=w;  if(tileh>h) tileh=h;
 		ntilesw=(w+tilew-1)/tilew;  ntilesh=(h+tileh-1)/tileh;
 
 		if((jpegbuf=(unsigned char **)malloc(sizeof(unsigned char *)
@@ -427,7 +422,7 @@ int fullTest(unsigned char *srcbuf, int w, int h, int subsamp, int jpegqual,
 			printf("                  Output bit stream:  %f Megabits/sec\n",
 				(double)totaljpegsize*8./1000000.*(double)iter/elapsed);
 		}
-		if(tilew==w && tileh==h && dowrite)
+		if(tilew==w && tileh==h)
 		{
 			snprintf(tempstr, 1024, "%s_%s_Q%d.jpg", filename, subName[subsamp],
 				jpegqual);
@@ -449,8 +444,7 @@ int fullTest(unsigned char *srcbuf, int w, int h, int subsamp, int jpegqual,
 
 		for(i=0; i<ntilesw*ntilesh; i++)
 		{
-			if(jpegbuf[i]) tjFree(jpegbuf[i]);
-			jpegbuf[i]=NULL;
+			if(jpegbuf[i]) tjFree(jpegbuf[i]);  jpegbuf[i]=NULL;
 		}
 		free(jpegbuf);  jpegbuf=NULL;
 		free(jpegsize);  jpegsize=NULL;
@@ -468,8 +462,7 @@ int fullTest(unsigned char *srcbuf, int w, int h, int subsamp, int jpegqual,
 	{
 		for(i=0; i<ntilesw*ntilesh; i++)
 		{
-			if(jpegbuf[i]) tjFree(jpegbuf[i]);
-			jpegbuf[i]=NULL;
+			if(jpegbuf[i]) tjFree(jpegbuf[i]);  jpegbuf[i]=NULL;
 		}
 		free(jpegbuf);  jpegbuf=NULL;
 	}
@@ -536,8 +529,7 @@ int decompTest(char *filename)
 
 	for(tilew=dotile? 16:w, tileh=dotile? 16:h; ; tilew*=2, tileh*=2)
 	{
-		if(tilew>w) tilew=w;
-		if(tileh>h) tileh=h;
+		if(tilew>w) tilew=w;  if(tileh>h) tileh=h;
 		ntilesw=(w+tilew-1)/tilew;  ntilesh=(h+tileh-1)/tileh;
 
 		if((jpegbuf=(unsigned char **)malloc(sizeof(unsigned char *)
@@ -697,8 +689,7 @@ int decompTest(char *filename)
 	{
 		for(i=0; i<ntilesw*ntilesh; i++)
 		{
-			if(jpegbuf[i]) tjFree(jpegbuf[i]);
-			jpegbuf[i]=NULL;
+			if(jpegbuf[i]) tjFree(jpegbuf[i]);  jpegbuf[i]=NULL;
 		}
 		free(jpegbuf);  jpegbuf=NULL;
 	}
@@ -765,9 +756,7 @@ void usage(char *progname)
 	printf("-benchtime <t> = Run each benchmark for at least <t> seconds (default = 5.0)\n");
 	printf("-warmup <w> = Execute each benchmark <w> times to prime the cache before\n");
 	printf("     taking performance measurements (default = 1)\n");
-	printf("-componly = Stop after running compression tests.  Do not test decompression.\n");
-	printf("-nowrite = Do not write reference or output images (improves consistency of\n");
-	printf("     performance measurements.)\n\n");
+	printf("-componly = Stop after running compression tests.  Do not test decompression.\n\n");
 	printf("NOTE:  If the quality is specified as a range (e.g. 90-100), a separate\n");
 	printf("test will be performed for all quality values in the range.\n\n");
 	exit(1);
@@ -917,7 +906,6 @@ int main(int argc, char *argv[])
 				}
 			}
 			if(!strcasecmp(argv[i], "-componly")) componly=1;
-			if(!strcasecmp(argv[i], "-nowrite")) dowrite=0;
 		}
 	}
 

@@ -4,9 +4,8 @@
  * This file was part of the Independent JPEG Group's software:
  * Copyright (C) 1994-1996, Thomas G. Lane.
  * libjpeg-turbo Modifications:
- * Copyright (C) 2010, 2016, D. R. Commander.
- * For conditions of distribution and use, see the accompanying README.ijg
- * file.
+ * Copyright (C) 2010, D. R. Commander.
+ * For conditions of distribution and use, see the accompanying README file.
  *
  * This file contains the main buffer controller for decompression.
  * The main buffer lies between the JPEG decompressor proper and the
@@ -16,7 +15,6 @@
  * supplies the equivalent of the main buffer in that case.
  */
 
-#include "jinclude.h"
 #include "jdmainct.h"
 
 

@@ -160,7 +160,7 @@ public class TJTransform extends Rectangle {
    * TJCustomFilter} interface, or null if no custom filter is needed
    */
   public TJTransform(int x, int y, int w, int h, int op, int options,
-                     TJCustomFilter cf) {
+                     TJCustomFilter cf) throws Exception {
     super(x, y, w, h);
     this.op = op;
     this.options = options;
@@ -184,7 +184,7 @@ public class TJTransform extends Rectangle {
    * TJCustomFilter} interface, or null if no custom filter is needed
    */
   public TJTransform(Rectangle r, int op, int options,
-                     TJCustomFilter cf) {
+                     TJCustomFilter cf) throws Exception {
     super(r);
     this.op = op;
     this.options = options;

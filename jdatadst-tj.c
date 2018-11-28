@@ -5,9 +5,8 @@
  * Copyright (C) 1994-1996, Thomas G. Lane.
  * Modified 2009-2012 by Guido Vollbeding.
  * libjpeg-turbo Modifications:
- * Copyright (C) 2011, 2014, 2016, D. R. Commander.
- * For conditions of distribution and use, see the accompanying README.ijg
- * file.
+ * Copyright (C) 2011, 2014 D. R. Commander.
+ * For conditions of distribution and use, see the accompanying README file.
  *
  * This file contains compression data destination routines for the case of
  * emitting JPEG data to memory or to a file (or any stdio stream).
@@ -24,7 +23,7 @@
 #include "jerror.h"
 
 #ifndef HAVE_STDLIB_H           /* <stdlib.h> should declare malloc(),free() */
-extern void *malloc (size_t size);
+extern void * malloc (size_t size);
 extern void free (void *ptr);
 #endif
 
@@ -37,15 +36,15 @@ extern void free (void *ptr);
 typedef struct {
   struct jpeg_destination_mgr pub; /* public fields */
 
-  unsigned char **outbuffer;    /* target buffer */
-  unsigned long *outsize;
-  unsigned char *newbuffer;     /* newly allocated buffer */
-  JOCTET *buffer;               /* start of buffer */
+  unsigned char ** outbuffer;   /* target buffer */
+  unsigned long * outsize;
+  unsigned char * newbuffer;    /* newly allocated buffer */
+  JOCTET * buffer;              /* start of buffer */
   size_t bufsize;
   boolean alloc;
 } my_mem_destination_mgr;
 
-typedef my_mem_destination_mgr *my_mem_dest_ptr;
+typedef my_mem_destination_mgr * my_mem_dest_ptr;
 
 
 /*
@@ -87,7 +86,7 @@ METHODDEF(boolean)
 empty_mem_output_buffer (j_compress_ptr cinfo)
 {
   size_t nextsize;
-  JOCTET *nextbuffer;
+  JOCTET * nextbuffer;
   my_mem_dest_ptr dest = (my_mem_dest_ptr) cinfo->dest;
 
   if (!dest->alloc) ERREXIT(cinfo, JERR_BUFFER_SIZE);
@@ -148,7 +147,7 @@ term_mem_destination (j_compress_ptr cinfo)
 
 GLOBAL(void)
 jpeg_mem_dest_tj (j_compress_ptr cinfo,
-               unsigned char **outbuffer, unsigned long *outsize,
+               unsigned char ** outbuffer, unsigned long * outsize,
                boolean alloc)
 {
   boolean reused = FALSE;
@@ -167,11 +166,6 @@ jpeg_mem_dest_tj (j_compress_ptr cinfo,
     dest = (my_mem_dest_ptr) cinfo->dest;
     dest->newbuffer = NULL;
     dest->buffer = NULL;
-  } else if (cinfo->dest->init_destination != init_mem_destination) {
-    /* It is unsafe to reuse the existing destination manager unless it was
-     * created by this function.
-     */
-    ERREXIT(cinfo, JERR_BUFFER_SIZE);
   }
 
   dest = (my_mem_dest_ptr) cinfo->dest;

@@ -3,12 +3,10 @@
  *
  * This file was part of the Independent JPEG Group's software:
  * Copyright (C) 1991-1997, Thomas G. Lane.
- * Modified 2013 by Guido Vollbeding.
  * libjpeg-turbo Modifications:
  * Copyright (C) 2010-2011, 2013-2016, D. R. Commander.
  * Copyright (C) 2015, Google, Inc.
- * For conditions of distribution and use, see the accompanying README.ijg
- * file.
+ * For conditions of distribution and use, see the accompanying README file.
  *
  * This file contains a command-line user interface for the JPEG decompressor.
  * It should work on any system with Unix- or MS-DOS-style command lines.
@@ -192,7 +190,7 @@ parse_switches (j_decompress_ptr cinfo, int argc, char **argv,
  */
 {
   int argn;
-  char *arg;
+  char * arg;
 
   /* Set up default JPEG parameters. */
   requested_fmt = DEFAULT_FMT;  /* set default output file format */
@@ -309,7 +307,7 @@ parse_switches (j_decompress_ptr cinfo, int argc, char **argv,
         usage();
       if (for_real) {           /* too expensive to do twice! */
 #ifdef QUANT_2PASS_SUPPORTED    /* otherwise can't quantize to supplied map */
-        FILE *mapfile;
+        FILE * mapfile;
 
         if ((mapfile = fopen(argv[argn], READ_BINARY)) == NULL) {
           fprintf(stderr, "%s: can't open %s\n", progname, argv[argn]);
@@ -376,7 +374,7 @@ parse_switches (j_decompress_ptr cinfo, int argc, char **argv,
       /* Scale the output image by a fraction M/N. */
       if (++argn >= argc)       /* advance to next argument */
         usage();
-      if (sscanf(argv[argn], "%u/%u",
+      if (sscanf(argv[argn], "%d/%d",
                  &cinfo->scale_num, &cinfo->scale_denom) != 2)
         usage();
 
@@ -422,7 +420,7 @@ LOCAL(unsigned int)
 jpeg_getc (j_decompress_ptr cinfo)
 /* Read next byte */
 {
-  struct jpeg_source_mgr *datasrc = cinfo->src;
+  struct jpeg_source_mgr * datasrc = cinfo->src;
 
   if (datasrc->bytes_in_buffer == 0) {
     if (! (*datasrc->fill_input_buffer) (cinfo))
@@ -437,7 +435,7 @@ METHODDEF(boolean)
 print_text_marker (j_decompress_ptr cinfo)
 {
   boolean traceit = (cinfo->err->trace_level >= 1);
-  long length;
+  INT32 length;
   unsigned int ch;
   unsigned int lastch = 0;
 
@@ -498,8 +496,8 @@ main (int argc, char **argv)
 #endif
   int file_index;
   djpeg_dest_ptr dest_mgr = NULL;
-  FILE *input_file;
-  FILE *output_file;
+  FILE * input_file;
+  FILE * output_file;
   unsigned char *inbuffer = NULL;
   unsigned long insize = 0;
   JDIMENSION num_scanlines;
